@@ -1,21 +1,20 @@
 using apply_neural_network.RabbitMq;
 using apply_neural_network.databases;
+using apply_neural_network.RabbitMq.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
+builder.Services.AddScoped<IStatusController, StatusController>();
 builder.Services.AddMvc();
-// Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.MapGet("/", () => "Hello World!");
 
-// app.MapGet("/api/upload",);
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

@@ -11,7 +11,7 @@ using apply_neural_network.databases;
 
 namespace apply_neural_network.RabbitMq.Controllers
 {
-    public class StatusController: Controller
+    public class StatusController : Controller, IStatusController
     {
 
         public StatusController()
@@ -22,18 +22,20 @@ namespace apply_neural_network.RabbitMq.Controllers
         [HttpPost]
         public IActionResult GetStatus(string taskId)
         {
-            using (var sqlite = new Sqllite()) {
-            var sqlite_datareader = sqlite.selectQuery("select status from tasks where task_id = \'" + taskId + "\'");
-                if (sqlite_datareader is null) {
-                    
+            using (var sql = new Postgres())
+            {
+                var datareader = sql.selectQuery(taskId);
+                if (sql is null)
+                {
+
                     return NotFound();
                 }
-                while (sqlite_datareader.Read())
+                while (datareader.Read())
                 {
-                    string status = sqlite_datareader.GetString(0);
+                    string status = datareader.GetString(0);
                     return Ok(status);
                 }
-                    return NotFound();
+                return NotFound();
             }
         }
     }

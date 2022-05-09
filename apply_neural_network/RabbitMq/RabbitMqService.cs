@@ -25,7 +25,7 @@ namespace apply_neural_network.RabbitMq
                             arguments: null);
 
                 var byteMessage = Encoding.UTF8.GetBytes(message);
-                
+
                 Console.WriteLine(message);
                 channel.BasicPublish(exchange: "",
                             routingKey: "MyQueue",
