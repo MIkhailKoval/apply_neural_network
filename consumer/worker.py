@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 import pika
 import time
-import pickle 
+import pickle
 
 import asyncpg
 import asyncio
@@ -22,19 +22,20 @@ channel.queue_declare(
     # Durable = True # durable = True Постоянство для очереди
 )
 
+
 def predict(filename):
     time.sleep(15)
-    model_name = '../../exp/finalized_model.sav'
+    model_name = "../../exp/finalized_model.sav"
 
-    loaded_model = pickle.load(open(model_name, 'rb'))
-    path='../apply_neural_network/wwwroot/pictures_data/' + filename
-    img=image.load_img(path, target_size=(150, 150))
-    x=image.img_to_array(img)
-    x=np.expand_dims(x, axis=0)
+    loaded_model = pickle.load(open(model_name, "rb"))
+    path = "../apply_neural_network/wwwroot/pictures_data/" + filename
+    img = image.load_img(path, target_size=(150, 150))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
     images = np.vstack([x])
     classes = loaded_model.predict(images, batch_size=10)
 
-    if classes[0]>0:
+    if classes[0] > 0:
         print(f"it is a dog!")
         return "dog"
 
@@ -42,47 +43,60 @@ def predict(filename):
         print(f"it is a cat!")
         return "cat"
 
+
 async def callback_inner(ch, method, properties, body):
-    con = await asyncpg.connect(user='postgres', host='127.0.0.1', password='postgres', port=5432)
+    con = await asyncpg.connect(
+        user="postgres", host="127.0.0.1", password="postgres", port=5432
+    )
     cursor = con
     message = body.decode()
-    splitted = message.split('#')
+    splitted = message.split("#")
 
-    filename = '#'.join(splitted[1:])
+    filename = "#".join(splitted[1:])
     task_id = splitted[0]
 
     print("task " + task_id + " started!")
-    await cursor.execute(f"""
+    await cursor.execute(
+        f"""
         INSERT INTO tasks(task_id, status)
         VALUES(\'{task_id}\', \'STARTED\')
         ON CONFLICT(task_id) DO UPDATE
         SET status = excluded.status;
-    """)
+    """
+    )
     try:
         result = predict(message)
     except Exception as e:
-        await cursor.execute(f"""
+        await cursor.execute(
+            f"""
             INSERT INTO tasks(task_id, status)
             VALUES(\'{task_id}\', \'FAILURE\')
                 status
             ON CONFLICT(task_id) DO UPDATE
             SET status = excluded.status;
-        """)
-        print('exception what: ', e)
+        """
+        )
+        print("exception what: ", e)
         return
-    
-    await cursor.execute(f"""
+
+    await cursor.execute(
+        f"""
         INSERT INTO tasks(task_id, status, result)
         VALUES(\'{task_id}\', \'SUCCESS\', \'{result}\')
         ON CONFLICT(task_id) DO UPDATE
         SET status = excluded.status,
             result = excluded.result;
-    """)
+    """
+    )
     print("task " + task_id + " finished!")
 
+
 def callback(ch, method, properties, body):
-    asyncio.get_event_loop().run_until_complete(callback_inner(ch, method, properties, body))
+    asyncio.get_event_loop().run_until_complete(
+        callback_inner(ch, method, properties, body)
+    )
     ch.basic_ack(delivery_tag=method.delivery_tag)
+
 
 channel.basic_qos(prefetch_count=1)
 
