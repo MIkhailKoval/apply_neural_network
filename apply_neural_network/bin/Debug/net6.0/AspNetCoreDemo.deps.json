@@ -10,7 +10,7 @@
         "dependencies": {
           "Npgsql": "6.0.4",
           "RabbitMQ.Client": "6.2.4",
-          "Swashbuckle.AspNetCore": "6.2.3",
+          "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
           "AspNetCoreDemo.dll": {}
@@ -21,7 +21,7 @@
           "Microsoft.CSharp": "4.7.0",
           "System.CodeDom": "4.7.0",
           "System.ComponentModel.Annotations": "4.7.0",
-          "System.Configuration.ConfigurationManager": "4.7.0",
+          "System.Configuration.ConfigurationManager": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.1/EntityFramework.SqlServer.dll": {
