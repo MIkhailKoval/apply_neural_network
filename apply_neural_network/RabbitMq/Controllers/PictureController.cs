@@ -1,12 +1,5 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System.IO;
-using System;
-using Microsoft.AspNetCore.Hosting;
 using apply_neural_network.RabbitMq;
-using apply_neural_network.RabbitMq.Controllers;
 using apply_neural_network.databases;
 
 public class Picture
@@ -42,7 +35,7 @@ public class PictureController : Controller
         _statusController = statusController;
     }
     [Route("/api/download/result")]
-    [HttpPost]
+    [HttpGet]
     public IActionResult DownloadResult(String fileId)
     {
         var index = fileId.IndexOf('#');
@@ -58,7 +51,7 @@ public class PictureController : Controller
             case "STARTED":
                 return Ok("Result doesn't ready. Try it later!");
             case "FAILURE":
-                return Ok("Task failed");
+                return Ok("Task failed!");
             case "SUCCESS":
                 var result = GetResult(taskId);
                 if (result is null)
@@ -76,6 +69,7 @@ public class PictureController : Controller
 
     [Route("/api/upload")]
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult AddFile(IFormFile uploadedFile)
     {
         if (uploadedFile != null)

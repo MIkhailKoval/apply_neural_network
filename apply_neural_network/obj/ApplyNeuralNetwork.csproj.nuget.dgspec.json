@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/home/mikovalnya/apply_neural_network/apply_neural_network/AspNetCoreDemo.csproj": {}
+    "/home/mikovalnya/apply_neural_network/apply_neural_network/ApplyNeuralNetwork.csproj": {}
   },
   "projects": {
-    "/home/mikovalnya/apply_neural_network/apply_neural_network/AspNetCoreDemo.csproj": {
+    "/home/mikovalnya/apply_neural_network/apply_neural_network/ApplyNeuralNetwork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mikovalnya/apply_neural_network/apply_neural_network/AspNetCoreDemo.csproj",
-        "projectName": "AspNetCoreDemo",
-        "projectPath": "/home/mikovalnya/apply_neural_network/apply_neural_network/AspNetCoreDemo.csproj",
+        "projectUniqueName": "/home/mikovalnya/apply_neural_network/apply_neural_network/ApplyNeuralNetwork.csproj",
+        "projectName": "ApplyNeuralNetwork",
+        "projectPath": "/home/mikovalnya/apply_neural_network/apply_neural_network/ApplyNeuralNetwork.csproj",
         "packagesPath": "/home/mikovalnya/.nuget/packages/",
         "outputPath": "/home/mikovalnya/apply_neural_network/apply_neural_network/obj/",
         "projectStyle": "PackageReference",

@@ -1,11 +1,4 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System.IO;
-using System;
-using Microsoft.AspNetCore.Hosting;
-using apply_neural_network.RabbitMq;
 
 using apply_neural_network.databases;
 
@@ -19,7 +12,7 @@ namespace apply_neural_network.RabbitMq.Controllers
         }
 
         [Route("/api/get/status/")]
-        [HttpPost]
+        [HttpGet]
         public IActionResult GetStatus(string taskId)
         {
             using (var sql = new Postgres())

@@ -1,7 +1,5 @@
 using RabbitMQ.Client;
-using System;
 using System.Text;
-using System.Text.Json;
 
 namespace apply_neural_network.RabbitMq
 {

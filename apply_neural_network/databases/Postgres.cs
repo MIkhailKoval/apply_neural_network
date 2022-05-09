@@ -1,6 +1,3 @@
-using System;
-using System.Text;
-using System.Data;
 using Npgsql;
 
 namespace apply_neural_network.databases

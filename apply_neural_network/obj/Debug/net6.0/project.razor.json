@@ -16323,11 +16323,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/mikovalnya/apply_neural_network/apply_neural_network/Views/Shared/Index.cshtml",
-      "TargetPath": "Views\\Shared\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/mikovalnya/apply_neural_network/apply_neural_network/Pages/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
