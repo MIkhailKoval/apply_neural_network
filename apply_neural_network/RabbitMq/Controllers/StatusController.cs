@@ -10,7 +10,12 @@ namespace apply_neural_network.RabbitMq.Controllers
         public StatusController()
         {
         }
-
+        /// <summary>
+        /// Get status of task by its task id.
+        /// </summary>
+        /// <response code="200">Get status</response>
+        /// <response code="404">Task id not found in database</response>
+        /// <response code="500">Something went wrong. Server Error</response>
         [Route("/api/get/status/")]
         [HttpGet]
         public IActionResult GetStatus(string taskId)

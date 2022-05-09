@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8jk6RS2yKB2sxHwYdobQ09C8lcO+JD2aYcov7TNHaAs/r4HgUoApUXkrwsXqKDQhlxlyulAq3SvDJtqZZNEatw==",
+  "dgSpecHash": "1juQOQeiMZRzZ3zpq3v5A93hHY5KngGOp+/DU9A5OSENMgE1f0UzrXaW01lrgEmNghnoCHw7T86NhkrLcCR1aw==",
   "success": true,
   "projectFilePath": "/home/mikovalnya/apply_neural_network/apply_neural_network/ApplyNeuralNetwork.csproj",
   "expectedPackageFiles": [
@@ -8,10 +8,10 @@
     "/home/mikovalnya/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/home/mikovalnya/.nuget/packages/npgsql/6.0.4/npgsql.6.0.4.nupkg.sha512",
     "/home/mikovalnya/.nuget/packages/rabbitmq.client/6.2.4/rabbitmq.client.6.2.4.nupkg.sha512",
-    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore/6.3.1/swashbuckle.aspnetcore.6.3.1.nupkg.sha512",
+    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore.swagger/6.3.1/swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
+    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.3.1/swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
+    "/home/mikovalnya/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.3.1/swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512",
     "/home/mikovalnya/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/home/mikovalnya/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/mikovalnya/.nuget/packages/system.threading.channels/4.7.1/system.threading.channels.4.7.1.nupkg.sha512"

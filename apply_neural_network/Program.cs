@@ -1,6 +1,7 @@
 using apply_neural_network.RabbitMq;
 using apply_neural_network.databases;
 using apply_neural_network.RabbitMq.Controllers;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -10,10 +11,29 @@ builder.Services.AddScoped<IStatusController, StatusController>();
 builder.Services.AddMvc();
 builder.Services.AddRazorPages();
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1",
+        new OpenApiInfo
+        {
+            Title = "ApplyNeuralNetwork",
+            Version = "v1"
+        }
+     );
+
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "ApplyNeuralNetwork.xml");
+    c.IncludeXmlComments(filePath);
+});
+
 var app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(
+    c =>
+{
+    c.SwaggerEndpoint("v1/swagger.json", "ApplyNeuralNetwork V1");
+}
+);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
